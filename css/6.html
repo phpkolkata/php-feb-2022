@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        border: 1px solid red;
+        width: 450px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- layer -->
+    <!-- 2 laryers, left and right -->
+    <!-- 2 rules for both layers
+        a. left glass writing starts with left side / right glass from right side
+        b. both the layer, there is no rule of block element
+    -->
+    <div>1</div>
+    <div>2</div>
+
+    <div style="float: left">left div</div>
+    <div style="float: left">left div</div>
+    <!-- <div style="float: right">right div</div> -->
+
+    <!-- clear floating and start base screen again -->
+    <div style="clear: both"></div>
+    <div>base screen</div>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+.box {
+  border: 1px solid black;
+  height: 200px;
+  width: 200px;
+
+  color: green;
+}
+.blue {
+  color: blue;
+}
+.red {
+  color: red;
+}
+
+/* by Id css */
+#myDiv {
+  background-color: blue;
+}
+
+/* by element css */
+div {
+  background-color: yellow;
+  padding: 10px;
+  margin: 10px;
+}
+
+/* reference css */
+/* div > b {
+    font-size: 30px;
+  } */
+
+/* direct child ref */
+/* .box > b {
+    font-size: 30px;
+  } */
+
+/* any level child ref */
+.box b {
+  font-size: 30px;
+}
+
+/* parellel css */
+div,
+b {
+  font-size: 14px;
+}
