@@ -44,3 +44,41 @@ div,
 b {
   font-size: 14px;
 }
+
+/* font size */
+.f12 {
+  font-size: 12px;
+}
+.f14 {
+  font-size: 14px;
+}
+.f16 {
+  font-size: 16px;
+}
+.f18 {
+  font-size: 18px;
+}
+
+/* font-color */
+.fRed {
+  color: red;
+}
+.fYellow {
+  color: yellow;
+}
+
+/* bg color */
+.bgRed {
+  background-color: red;
+}
+.bgYellow {
+  background-color: yellow;
+}
+
+/* padding */
+.p4 {
+  padding: 4px;
+}
+.p8 {
+  padding: 8px;
+}
