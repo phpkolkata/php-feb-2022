@@ -1,0 +1,27 @@
+method 1: for single statement
+if(condition true){
+    then run this line
+}
+
+method 2: for double statement
+if(condition is true){
+    then run this statement, don't run else then
+}
+else{
+    if above condition is false then run this else statement
+}
+
+method 3: for multiple statement
+if(condition is true){
+     run this statement, ignore all
+}
+else if(condition is true){
+         run this statement, ignore all
+}
+else if(condition is true){
+         run this statement, ignore all
+
+}
+else{
+    if above all conditions is false then run this else statement
+}
