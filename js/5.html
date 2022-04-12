@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function ValidateEmail(mail) {
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
+          return true;
+        }
+        return false;
+      }
+
+      function validate() {
+        var nm = document.getElementById("nm");
+        var age = document.getElementById("age");
+        var email = document.getElementById("email");
+
+        // alert(isNaN(age.value));
+
+        if (nm.value == "") {
+          alert("Please entr your name first.");
+          nm.focus();
+          return false;
+        } else if (age.value == "") {
+          alert("please enter your age.");
+          return false;
+        } else if (isNaN(age.value)) {
+          alert("Please enter age in numbers!");
+          return false;
+        } else if (age.value < 18 || age.value > 60) {
+          alert("age must be under 18-60.");
+          return false;
+        } else if (email.value == "") {
+          alert("Please enter email.");
+          email.focus();
+        } else if (ValidateEmail(email.value) == false) {
+          alert("You have entered an invalid email address!");
+          return false;
+        } else {
+          alert("thank you!");
+          return false;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form action="6.php">
+      Name:<input type="text" value="" id="nm" />
+      <br />
+      Age:<input type="text" value="" id="age" />
+      <br />
+      Email:<input type="text" value="" id="email" />
+      <br />
+      <!-- <input type="submit" value="submit" /> -->
+      <button onclick="return validate();">submit</button>
+    </form>
+  </body>
+</html>
+
+<!-- https://www.w3resource.com/javascript/form/email-validation.php -->
+
+<!-- validation rules -->
+<!-- * All fields are mandatory
+name: (3-10 chars, only alphabets)
+mobile: 10 digit, numbers only
+age: number, 18-60
+email: format checking
+city:
+gender:
+hobbies: -->
