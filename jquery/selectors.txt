@@ -1,0 +1,29 @@
+$("*")	All elements
+$("#lastname")	The element with id="lastname"
+$(".intro")	All elements with class="intro"
+$(".intro,.demo")	All elements with the class "intro" or "demo"
+$("p")	All <p> elements
+$("p:first")	The first <p> element
+$("p:last")	The last <p> element
+$("tr:even")	All even <tr> elements
+$("tr:odd")	All odd <tr> elements
+$("p:first-child")	All <p> elements that are the first child of their parent
+$("p:last-child")	All <p> elements that are the last child of their parent
+$("p:nth-child(2)")	All <p> elements that are the 2nd child of their parent
+$("div > p")	All <p> elements that are a direct child of a <div> element
+$("div p")	All <p> elements that are descendants of a <div> element
+$("[href]")	All elements with a href attribute
+$(":input")	All input elements
+$(":text")	All input elements with type="text"
+$(":password")	All input elements with type="password"
+$(":radio")	All input elements with type="radio"
+$(":checkbox")	All input elements with type="checkbox"
+$(":submit")	All input elements with type="submit"
+$(":reset")	All input elements with type="reset"
+$(":button")	All input elements with type="button"
+$(":image")	All input elements with type="image"
+$(":file")	All input elements with type="file"
+$(":enabled")	All enabled input elements
+$(":disabled")	All disabled input elements
+$(":selected")	All selected input elements
+$(":checked")	All checked input elements
