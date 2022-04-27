@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Product Image Zoom On Hover Example</title>
+
+    <link href="zoom-style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="cn f a j">
+      <div class="wp f">
+        <aside>
+          <div class="zoom">
+            <div class="original">
+              <img
+                src="https://source.unsplash.com/pIKQbdSzF_k/1200x1800"
+                id="target"
+              />
+            </div>
+            <div class="viewer">
+              <img src="https://source.unsplash.com/pIKQbdSzF_k/1200x1800" />
+            </div>
+            <div class="magnifier"></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+    <script type="text/javascript" src="js/zoom.js"></script>
+    <script type="text/javascript">
+      var l = $("#target").zoom(2);
+
+      $('input[type="range"]').on("change", function () {
+        l.setZoom(this.value);
+      });
+    </script>
+  </body>
+</html>
