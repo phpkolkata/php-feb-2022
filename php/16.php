@@ -47,3 +47,60 @@ $y[] = 90;
 print "<br>";
 print "<pre>";
 print_r($y);
+
+
+// loop through an array
+$week = array("sun", "mon", "tue", "wed", "thu","fri");
+
+// echo $week[0];
+// echo $week[1];
+// echo $week[2];
+// echo $week[3];
+
+// for($i=0;$i<=3;$i++){
+//     // echo $i;
+//     echo $week[$i]."<br>";
+// }
+
+// die(count($week)."test");
+
+// for($i=0;$i<count($week);$i++){
+//     echo $week[$i]."<br>";
+// }
+
+// for($i=0;$i<5;$i++){
+//     echo $i,"<br>";
+// }
+
+// print"
+// <select>
+// <option>$week[0]</option>
+// <option>$week[1]</option>
+// <option>$week[2]</option>
+// <option>$week[3]</option>
+// <option>$week[4]</option>
+// <option>$week[5]</option>
+// </select>
+// ";
+
+
+print "<select>";
+for($i=0;$i<count($week);$i++){
+    echo "<option>$week[$i]</option>";
+}
+print "</select>";
+
+// echo $week[6];
+
+// foreach loop - specially for array looping
+// $week - array source
+// $v - temp var, user defined
+foreach($week as $v){
+    echo $v."<br>";
+}
+
+
+// foreach with key=>value
+foreach($week as $k=>$v){
+    echo $k."=".$v."<br>";
+}
