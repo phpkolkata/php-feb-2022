@@ -55,6 +55,11 @@ $std = array("name"=>"raj", "age"=>22,"marks"=>$marks);
 //     }
 // }
 
+
+$marks = array("eng"=>33,"math"=>55, "sci"=>44);
+$std = array("name"=>"raj", "age"=>22,"marks"=>$marks);
+
+
 foreach($std as $v){
     if(is_array($v)){
        foreach($v as $v2){
