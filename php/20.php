@@ -1,5 +1,4 @@
 <?php
-// point: Array functions are pending.
 // Topic: Server/Global/pre-defined Variables
 
 // -: all server vars are array
