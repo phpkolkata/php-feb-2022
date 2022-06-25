@@ -1,0 +1,45 @@
+Tables:
+1.category
+2.product
+3.user
+4.order
+5.admin
+
+
+-: category table
+    id (primary, AI)
+    name
+
+-: product table
+    id
+    cat_id (foreign key from category table)
+    name
+    price
+    desc
+    image
+
+-: user table
+    id
+    name
+    email
+    pass
+    add1
+    add2
+    city
+    state
+    zip
+
+-: order table
+    id
+    uid (fkey)
+    pid (fkey)
+    qnty
+    date
+    comment
+
+-: admin table
+    id
+    name
+    email
+    pass
+
