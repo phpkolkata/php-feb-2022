@@ -1,5 +1,5 @@
 <?php
-require('conn.php');
+require('includes/conn.php');
 
 $id = $_REQUEST['id'];
 
