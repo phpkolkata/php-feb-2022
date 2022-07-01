@@ -22,6 +22,14 @@ require('includes/conn.php');
             }
             
         }
+
+        function hideAlert(){
+            setTimeout(() => {
+                // $(".alert")
+                const alert = document.querySelector(".alert");
+                alert.style.display = 'none';
+            }, 2000);
+        }
     </script>
 </head>
 <body>
@@ -38,11 +46,18 @@ if(isset($_REQUEST['msg'])){
     <div class='alert alert-success' role='alert'>".
         strtoupper($_REQUEST['msg'])
     ."</div>";
+    ?>
+    <script>
+        hideAlert();
+    </script>
+    <?php
 }
-
 
 // print"<a href='add-cat'>Add more...</a><br>";
 print"<div class='container'>";
+
+print"<div><a href='add-cat.php'>Add More Category...</a></div>";
+
 print "<table class='table table-striped'>";
 print "
     <tr>
@@ -60,12 +75,13 @@ while($row = mysqli_fetch_assoc($res)){
         <td>$row[is_active]</td>
         <td>
             <a href='#' onclick=\"confirmDelete('del-cat.php?id=$row[id]')\" style='text-decoration:none'> <i class='bi bi-trash-fill text-danger'> </i> </a> 
-            <a href='edit-cat.php' style='text-decoration:none'> <i class='bi bi-pencil-square text-warning'> </i></a>
+            <a href='edit-cat.php?id=$row[id]' style='text-decoration:none'> <i class='bi bi-pencil-square text-warning'> </i></a>
         </td>
     </tr>
     ";
 }
 print "</table>";
+
 print "</div>";
 ?>
 </body>
