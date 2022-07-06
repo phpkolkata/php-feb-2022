@@ -1,4 +1,5 @@
 <?php
+require('includes/session_security.php');
 require('includes/conn.php');
 ?>
 <!DOCTYPE html>
@@ -33,11 +34,25 @@ require('includes/conn.php');
     </script>
 </head>
 <body>
-<?php    
+<?php   
+// count total records from table
+$sql = "SELECT * FROM `category`";
+$res = mysqli_query($con,$sql) or die("error sql 1 --> ". mysqli_error($con));
+$tot = mysqli_num_rows($res);
+
+$limit = 2;
+$pages = ceil($tot / $limit);
+
+$start=0;
+if(isset($_REQUEST['p']))
+{
+    $start = ($_REQUEST['p'] - 1) * $limit;
+}
+
 
 // table and column name in sql query will be wrapped using (back tick) ``
 // and , value will be wrapped using (single quotation sign) ''
-$sql = "SELECT * FROM `category`";
+$sql = "SELECT * FROM `category` LIMIT $start,$limit";
 $res = mysqli_query($con,$sql) or die("error sql 1 --> ". mysqli_error($con));
 
 // alert message
@@ -53,23 +68,28 @@ if(isset($_REQUEST['msg'])){
     <?php
 }
 
+
 // print"<a href='add-cat'>Add more...</a><br>";
 print"<div class='container'>";
-
+print"<div class='float-end'><a href='logout.php'>logout</a></div>";
 print"<div><a href='add-cat.php'>Add More Category...</a></div>";
 
 print "<table class='table table-striped'>";
 print "
     <tr>
+        <th>SL.</th>
         <th>ID</th>
         <th>Name</th>
         <th>isActive</th>
         <th>Options</th>
     </tr>
     ";
+    $i =0;
 while($row = mysqli_fetch_assoc($res)){
+    $i++;
     print "
     <tr>
+        <td>$i</td>
         <td>$row[id]</td>
         <td>$row[name]</td>
         <td>$row[is_active]</td>
@@ -81,6 +101,14 @@ while($row = mysqli_fetch_assoc($res)){
     ";
 }
 print "</table>";
+
+print"<div align='center'>";
+for($i=1;$i<=$pages;$i++){
+    print"<a href='?p=$i'>$i</a> | ";
+}
+print"</div>";
+
+
 
 print "</div>";
 ?>
