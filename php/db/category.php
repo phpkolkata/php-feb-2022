@@ -1,42 +1,18 @@
-<?php
-require('includes/session_security.php');
-require('includes/conn.php');
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- CSS only -->
-    <?php
-    require('includes/head.php');
-    ?>
-
-    <script>
-        function confirmDelete(url){
-            const res = confirm("Are you sure, want to delete this record?");
-            if(res){
-                window.location.href = url;
-                // alert(url);
-            }
-            
-        }
-
-        function hideAlert(){
-            setTimeout(() => {
-                // $(".alert")
-                const alert = document.querySelector(".alert");
-                alert.style.display = 'none';
-            }, 2000);
-        }
-    </script>
-</head>
-<body>
 <?php   
+require("includes/tpl/header.php");
+require("includes/tpl/nav.php");
+
+// search code
+$where ="";
+$srch = "";
+if(isset($_GET['srch'])){
+    $srch = $_GET['srch'];
+    $where = "WHERE `name` like '%$srch%'";
+    // print $where;
+}
+
 // count total records from table
-$sql = "SELECT * FROM `category`";
+$sql = "SELECT * FROM `category` $where";
 $res = mysqli_query($con,$sql) or die("error sql 1 --> ". mysqli_error($con));
 $tot = mysqli_num_rows($res);
 
@@ -52,7 +28,7 @@ if(isset($_REQUEST['p']))
 
 // table and column name in sql query will be wrapped using (back tick) ``
 // and , value will be wrapped using (single quotation sign) ''
-$sql = "SELECT * FROM `category` LIMIT $start,$limit";
+$sql = "SELECT * FROM `category` $where LIMIT $start,$limit";
 $res = mysqli_query($con,$sql) or die("error sql 1 --> ". mysqli_error($con));
 
 // alert message
@@ -70,8 +46,14 @@ if(isset($_REQUEST['msg'])){
 
 
 // print"<a href='add-cat'>Add more...</a><br>";
-print"<div class='container'>";
-print"<div class='float-end'><a href='logout.php'>logout</a></div>";
+print"<div class='container mt-3'>";
+print"<div class='float-end'>
+<a href='category.php'>Show All</a>
+<form action='' method='get'>
+<input type='text'name='srch' placeholder='type something to search'>
+<button>Search</button>
+</form>
+<a href='logout.php'>logout</a></div>";
 print"<div><a href='add-cat.php'>Add More Category...</a></div>";
 
 print "<table class='table table-striped'>";
@@ -104,13 +86,17 @@ print "</table>";
 
 print"<div align='center'>";
 for($i=1;$i<=$pages;$i++){
-    print"<a href='?p=$i'>$i</a> | ";
+    print"<a href='?p=$i&srch=$srch'>$i</a> | ";
 }
 print"</div>";
 
 
 
 print "</div>";
+
+
+
+require("includes/tpl/footer.php");
+
 ?>
-</body>
-</html>
+
