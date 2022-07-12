@@ -1,0 +1,19 @@
+-: Equi Join:
+SELECT * FROM `product`,`category` WHERE `category`.`id`=`product`.`cat_id`
+
+-: Alias:
+SELECT `p`.`name` AS `pname`, `c`.`name` AS `cname` FROM `product` AS `p`,`category` AS `c` WHERE `c`.`id`=`p`.`cat_id`
+
+Joining 
+1. Inner Join
+2. Outer Join (left join, right join)
+
+Inner Join: (will give matching records form Joining tables)
+SELECT * FROM `product` AS `p` INNER JOIN `category` AS `c` ON `p`.`cat_id` = `c`.`id`
+
+Outer Join
+Left Join: (full record from left and then join, null in no match found)
+SELECT * FROM `product` AS `p` LEFT JOIN `category` AS `c` ON `p`.`cat_id` = `c`.`id`
+
+Right Join: (full record from right and then join, null in no match found)
+SELECT * FROM `product` AS `p` RIGHT JOIN `category` AS `c` ON `p`.`cat_id` = `c`.`id`

@@ -52,8 +52,7 @@ print"<div class='float-end'>
 <form action='' method='get'>
 <input type='text'name='srch' placeholder='type something to search'>
 <button>Search</button>
-</form>
-<a href='logout.php'>logout</a></div>";
+</form></div>";
 print"<div><a href='add-cat.php'>Add More Category...</a></div>";
 
 print "<table class='table table-striped'>";
