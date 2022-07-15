@@ -1,0 +1,52 @@
+Topic: OOP - Object Oriented Programming
+
+-OOP runs upon Class concept
+
+Class: class is a collection of methods(function) and properties(variable)
+
+
+Origin Cause:
+
+Procedural Programming
+functions.php
+---------------
+function hi(){}
+function hello(){}
+function bye(){}
+function add(){}
+function sub(){}
+function mul(){}
+function div(){}
+------------------------------------
+
+- more structurized 
+- more manageable
+- less complex
+- reusable
+
+class greet{
+    function hi(){}
+    function hello(){}
+    function bye(){}
+}
+
+class calc{
+    function add(){}
+    function sub(){}
+    function mul(){}
+    function div(){} 
+}
+
+greet.hi()
+calc.add()
+
+------------------
+
+OOP has 4 main pillars/concepts
+
+1. Encapsulation - class encapsulate proprties and methods in it 
+2. Inheritance - a class inharited by parant class have access to its properties and methods
+3. Abstraction
+4. Polymorphism
+
+

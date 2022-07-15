@@ -1,0 +1,3 @@
+Public -> inClass   childClass  outsideClass
+Private -> inClass
+Protected -> inClass    childClass
