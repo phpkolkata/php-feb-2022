@@ -1,5 +1,5 @@
 <?php
-class Display{
+abstract class Display{
 
     // public, private, protected
 
@@ -16,6 +16,8 @@ class Display{
         print "hello ".$this->name. "age is ".$this->age;;
         print "<br>";
     }
+
+    abstract function bye();
 
   
 }

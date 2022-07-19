@@ -45,10 +45,10 @@ calc.add()
 OOP has 4 main pillars/concepts
 
 1. Encapsulation - class encapsulate proprties and methods in it 
-2. Inheritance - a class inharited by parant class have access to its properties and methods
-3. Abstraction
-4. Polymorphism - many forms, same function with new body or extra args, 
+2. Inheritance   - a class inharited by parant class have access to its properties and methods
+3. Abstraction   - abstract class which has one/more methods created with header only, child class who inherits this class will responsible to implement body of the method.
+4. Polymorphism  - many forms, same function with new body or extra args, 
                     1. method overridding
-                    2. method overloading
+                    2. method overloading (PHP doesn't support)
 
 
