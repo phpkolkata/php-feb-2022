@@ -7,6 +7,34 @@
     <title>Document</title>
 </head>
 <body>
-  <?php echo $data['title']?>
+  <?php
+    // if($data['is_new']){
+    //     echo "<h1>New Post</h1>";
+    // }
+    // else{
+    //     echo "<h1>Old Post</h1>";
+    // }
+
+?>
+
+@if($data['is_new'])
+ <h1>New Post</h1>
+ @else
+ <h1>Old Post</h1>
+@endif
+
+{{-- @for()
+@endfor
+
+@foreach()
+
+@endforeach --}}
+
+    <?php //echo $data['title']?>
+  my post title - {{ $data['title'] }}<br>
+
+
+
+
 </body>
 </html>
