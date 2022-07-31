@@ -49,6 +49,7 @@ Route::get('/page2',function(){
 })->name('pages.page2');
 
 Route::get('/posts', function() use($posts){
+
     return view('posts.all',['posts'=>$posts]);
 });
 
@@ -59,6 +60,16 @@ Route::get('/posts/{id?}', function($id=1) use($posts){
 })->where('id','[0-9]+');
 
 
+Route::get('/admin/products', function(){
+    return view('admin.products');
+});
+
+Route::get('/admin/category', function(){
+    return view('admin.category');
+});
+
+
+// Route::get('/admin/products', );
 
 
 // MVC -
