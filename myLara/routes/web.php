@@ -1,6 +1,11 @@
 <?php
 
+use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\admin\ProductController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,57 +22,24 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-$posts = [
-    1=>[
-        'title'=>'My Post 1',
-        'content'=> 'this is post 1 content',
-        'is_new'=>false
 
-    ],
-    2=>[
-        'title'=>'My Post 2',
-        'content'=> 'this is post 2 content',
-        'is_new'=>true
-    ],
-    3=>[
-        'title'=>'My Post 3',
-        'content'=> 'this is post 3 content',
-        'is_new'=>false
-    ]
-];
 
-Route::get('/',function(){
-   return view('index');
-})->name('home');
+Route::get('/',[HomeController::class, 'index'])->name('home');
 
-Route::get('/page1',function(){
-   return view('pages.page1');
-})->name('pages.page1');
+Route::get('/page1',[PageController::class, 'page1'])->name('pages.page1');
+Route::get('/page2',[PageController::class, 'page2'])->name('pages.page2');
 
-Route::get('/page2',function(){
-   return view('pages.page2');
-})->name('pages.page2');
+Route::get('/posts', [PostController::class, 'index']);
+Route::get('/posts/{id?}', [PostController::class, 'find'])->where('id','[0-9]+');
 
-Route::get('/posts', function() use($posts){
 
-    return view('posts.all',['posts'=>$posts]);
+// Route::get('/admin/products', [ProductController::class, 'index']);
+// Route::get('/admin/category', [CategoryController::class, 'index']);
+
+Route::prefix('admin')->group(function(){
+    Route::get('/products', [ProductController::class, 'index']);
+    Route::get('/category', [CategoryController::class, 'index']);
 });
-
-Route::get('/posts/{id?}', function($id=1) use($posts){
-    abort_if(!isset($posts[$id]), 404);
-    $data = $posts[$id];
-    return view('posts.show',['data'=>$data]);
-})->where('id','[0-9]+');
-
-
-Route::get('/admin/products', function(){
-    return view('admin.products');
-});
-
-Route::get('/admin/category', function(){
-    return view('admin.category');
-});
-
 
 // Route::get('/admin/products', );
 
