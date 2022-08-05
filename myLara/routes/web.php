@@ -28,6 +28,8 @@ Route::get('/',[HomeController::class, 'index'])->name('home');
 
 Route::get('/page1',[PageController::class, 'page1'])->name('pages.page1');
 Route::get('/page2',[PageController::class, 'page2'])->name('pages.page2');
+Route::get('/pages/form',[PageController::class, 'form'])->name('pages.form');
+Route::post('/pages/form-submit',[PageController::class, 'formSubmit'])->name('pages.form.submit');
 
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/{id?}', [PostController::class, 'find'])->where('id','[0-9]+');

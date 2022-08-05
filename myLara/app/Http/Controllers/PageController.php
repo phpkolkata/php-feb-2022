@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-// use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
@@ -11,5 +11,25 @@ class PageController extends Controller
      }
      function page2(){
         return view('pages.page2');
+     }
+
+     function form(){
+        return view('pages.form');
+     }
+
+     function formSubmit(Request $r){
+
+        // $data = $r->input('nm');
+        // $data = $r->all();
+        // $data = $r->except('_token');
+
+        //validation logic
+        $validated = $r->validate([
+            'nm' => 'required',
+            'age' => 'required|numeric|max:99',
+        ]);
+
+
+        // return $data;
      }
 }
