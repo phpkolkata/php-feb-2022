@@ -40,7 +40,8 @@ Route::get('/posts/{id?}', [PostController::class, 'find'])->where('id','[0-9]+'
 
 Route::prefix('admin')->group(function(){
     Route::get('/products', [ProductController::class, 'index']);
-    Route::get('/category', [CategoryController::class, 'index']);
+    Route::get('/category', [CategoryController::class, 'index'])->name('admin.category');
+    Route::get('/category/del/{id}', [CategoryController::class, 'destroy'])->name('admin.cat.del');
 });
 
 // Route::get('/admin/products', );

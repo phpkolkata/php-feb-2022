@@ -25,11 +25,9 @@ class PageController extends Controller
 
         //validation logic
         $validated = $r->validate([
-            'nm' => 'required',
+            'name' => 'required',
             'age' => 'required|numeric|max:99',
         ]);
-
-
         // return $data;
      }
 }
