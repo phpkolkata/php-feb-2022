@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-// use Illuminate\Http\Request;
+use App\Models\Category;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
@@ -16,9 +17,34 @@ class CategoryController extends Controller
             // ->get();
             // return $users;
 
-        $dbCategory = DB::table('category')->get();
+            //Query Builder
+        // $dbCategory = DB::table('category')->get();
+        // $dbCategory = DB::table('category')->paginate(5);
         // return $dbCategory;
-        return view('admin.category',["db"=>$dbCategory]);
+
+        // Eloquent ORM
+        // $dbCategory = Category::all();
+        $dbCategory = Category::paginate(5);
+        return view('admin.category.index',["db"=>$dbCategory]);
+    }
+
+    function create(){
+        return view("admin.category.create");
+    }
+    function store(Request $r){
+        // return $r->except('_token');
+        // method 1
+        // $dbCategory = new Category();
+        // $dbCategory->name = $r->input('name');
+        // $dbCategory->is_active = $r->input('is_active');
+        // $dbCategory->save();
+
+        // method 2
+        $data = $r->except('_token');
+        // return $data;
+        Category::create($data);
+
+        return redirect()->route('admin.category')->with('msg', 'Category Added!');
     }
 
     function destroy($id){

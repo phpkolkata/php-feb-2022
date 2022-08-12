@@ -24,7 +24,7 @@
             @show
 		</td>
 		<td width="80%" valign="top">
-		<h1>@yield('body')</h1>
+		@yield('body')
 
 </td>
 </tr>

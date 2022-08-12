@@ -19,7 +19,7 @@ Category Page
 @endif
 
 <h1>Category </h1>
-<div><a href="">add more category</a></div>
+<div><a href="{{ route('admin.cat.add') }}">add more category</a></div>
 <table border="1" class="table">
     <tr>
         <th>ID</th>
@@ -36,7 +36,9 @@ Category Page
 </tr>
 @endforeach
 </table>
-
+<div >
+    {{ $db->links() }}
+</div>
 @endsection
 
 {{-- @section('nav')
