@@ -1,11 +1,13 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\ProductController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use Illuminate\Support\Facades\Hash;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,13 +20,20 @@ use App\Http\Controllers\PostController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return Hash::make('test');
+    // return view('welcome');
+});
+
+//auto entry
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+require __DIR__.'/auth.php';
 
 
 
-Route::get('/',[HomeController::class, 'index'])->name('home');
+// Route::get('/',[HomeController::class, 'index'])->name('home');
 
 Route::get('/page1',[PageController::class, 'page1'])->name('pages.page1');
 Route::get('/page2',[PageController::class, 'page2'])->name('pages.page2');
@@ -44,12 +53,6 @@ Route::prefix('admin')->group(function(){
     Route::get('/category/add', [CategoryController::class, 'create'])->name('admin.cat.add');
     Route::post('/category/store', [CategoryController::class, 'store'])->name('admin.cat.store');
     Route::get('/category/del/{id}', [CategoryController::class, 'destroy'])->name('admin.cat.del');
+    Route::get('/category/{id}/edit', [CategoryController::class, 'edit'])->name('admin.cat.edit');
+    Route::get('/category/update', [CategoryController::class, 'update'])->name('admin.cat.update');
 });
-
-// Route::get('/admin/products', );
-
-
-// MVC -
-// Model - business login handler (logic, db)
-// View - display part handler (html css js etc)
-// Controller - model & view handler

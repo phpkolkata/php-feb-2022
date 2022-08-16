@@ -32,7 +32,10 @@ Category Page
     <td>{{ $row->id }}</td>
     <td>{{ $row->name }}</td>
     <td>{{ $row->is_active }}</td>
-    <td><a href="{{ route('admin.cat.del',['id'=>$row->id]) }}">delete</a></td>
+    <td>
+        <a href="{{ route('admin.cat.del',['id'=>$row->id]) }}">delete</a> /
+        <a href="{{ route('admin.cat.edit',['id'=>$row->id]) }}">edit</a>
+    </td>
 </tr>
 @endforeach
 </table>

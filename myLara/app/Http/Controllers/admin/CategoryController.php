@@ -31,6 +31,7 @@ class CategoryController extends Controller
     function create(){
         return view("admin.category.create");
     }
+
     function store(Request $r){
         // return $r->except('_token');
         // method 1
@@ -51,4 +52,20 @@ class CategoryController extends Controller
         $del = DB::table('category')->where('id','=',$id)->delete();
         return redirect()->route('admin.category')->with('msg','Category Deleted!');
     }
+
+     function edit($id){
+            $data = DB::table('category')->where('id',$id)->get();
+            // return $data;
+        return view('admin.category.edit',["data"=>$data[0]]);
+    }
+
+    function update(Request $r){
+        $data = $r->except("_token");
+        // return $data;
+        $affected = DB::table('category')
+            ->where('id', $data['id'])
+            ->update($data);
+            return redirect()->route('admin.category')->with('msg','Category Updated!');
+}
+
 }
