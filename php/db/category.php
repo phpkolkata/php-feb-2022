@@ -28,7 +28,7 @@ if(isset($_REQUEST['p']))
 
 // table and column name in sql query will be wrapped using (back tick) ``
 // and , value will be wrapped using (single quotation sign) ''
-$sql = "SELECT * FROM `category` $where LIMIT $start,$limit";
+$sql = "SELECT * FROM `category`  $where LIMIT $start,$limit";
 $res = mysqli_query($con,$sql) or die("error sql 1 --> ". mysqli_error($con));
 
 // alert message
